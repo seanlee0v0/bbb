@@ -8,12 +8,35 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         query: {
           presets: ['babel-preset-es2015','babel-preset-react']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader!style-loader'
+      },
+      {
+        test: /\.less$/,
+        loader: 'less-loader'
+      },
+      {
+        test: /\.(jpg|npg)$/,
+        loader: 'image-loader'
       }
     ]
+  },
+  devServer:{
+    compress: true,
+    port: 9000,
+      historyApiFallback: {
+        rewrites: [
+          { from: /^\/$/, to: '/index.html' },
+          { from: /^\/*/, to: '/index.html' },
+          { from: /./, to: '/views/404.html' }
+        ]
+      }
   }
 }
