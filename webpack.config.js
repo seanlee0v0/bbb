@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const { resolve } = require('path');
 module.exports = {
   entry: `${__dirname}/src/app.js`,
   output: {
@@ -28,7 +29,10 @@ module.exports = {
       }
     ]
   },
+  devtool: 'inline-source-map',
   devServer:{
+    hot: true,
+    lazy: false,
     compress: true,
     port: 9000,
       historyApiFallback: {
@@ -38,5 +42,9 @@ module.exports = {
           { from: /./, to: '/views/404.html' }
         ]
       }
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+  ]
 }
