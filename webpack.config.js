@@ -24,8 +24,8 @@ module.exports = {
         loader: 'less-loader'
       },
       {
-        test: /\.(jpg|npg)$/,
-        loader: 'image-loader'
+        test: /\.(jpg|npg|gif)$/,
+        loader: 'url-loader'
       }
     ]
   },

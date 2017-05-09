@@ -1,23 +1,14 @@
-import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
-import {Router,Route,Switch} from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
-import About from './module/about';
-import Inbox from './module/inbox';
-let history = createBrowserHistory();
+import React from 'react'
+import Footer from './component/presentational/Footer'
+import AddTodo from './component/container/AddTodo'
+import VisibleTodoList from './component/container/VisibleTodoList'
 
-export default class App extends Component{
-  render(){
-    return (
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" render={()=>(<h1>Welcome</h1>)} />
-          <Route path="/inbox" component={Inbox} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </Router>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <AddTodo />
+    <VisibleTodoList />
+    <Footer />
+  </div>
+)
 
-ReactDOM.render(<App/>,document.body);
+export default App
