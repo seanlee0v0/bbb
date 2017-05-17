@@ -15,6 +15,7 @@ const mapStateToProps = (state={},ownProps) => {
 const mapDispatchToProps = (dispatch,ownProps) => {
   return {
     handleSubmit: (username,password) => {
+      window.username = username
       console.log("submit form.")
       console.log("username="+username)
       console.log("password="+password)

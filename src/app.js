@@ -9,9 +9,9 @@ import LoginFormContainer from './containers/LoginFormContainer'
 import LoginReducer from './reducers/LoginReducer'
 import Home from './components/Home'
 
-let store = createStore(LoginReducer)
+let store = createStore(LoginReducer,window.STATE_FROM_SERVER)
 let history = createHashHistory()
-
+window.store = store
 ReactDOM.render(
 <div>
   <Provider store={store}>
