@@ -1,8 +1,5 @@
-//import {combineReducers} from 'redux'
-
 const LoginReducer = (state={},action) => {
-  console.log(state)
-  console.log(action)
+
   switch(action.type){
     case 'LOGIN_SUCCEED':
     {

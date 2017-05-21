@@ -3,11 +3,6 @@ import {Redirect} from 'react-router'
 
 const LoginForm = ({isLoginSucceed,redirectPath,errMsg,handleSubmit}) => {
   let username,password
-  console.log("render LoginForm")
-  console.log(isLoginSucceed)
-  console.log(redirectPath)
-  console.log(errMsg)
-  console.log(handleSubmit)
 
   return isLoginSucceed?(<Redirect to={redirectPath} />):(
     <div id="login-form-div">

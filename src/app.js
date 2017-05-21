@@ -1,15 +1,19 @@
+import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-import {createStore} from 'redux'
+import {createStore,applyMiddleware} from 'redux'
 import {Router,Route} from 'react-router'
 import {createHashHistory} from 'history'
+import {createLogger} from 'redux-logger'
+import thunkMiddleware from 'redux-thunk'
 
 import LoginFormContainer from './containers/LoginFormContainer'
-import LoginReducer from './reducers/LoginReducer'
+import reducer from './reducers/index'
 import Home from './components/Home'
 
-let store = createStore(LoginReducer,window.STATE_FROM_SERVER)
+let loggerMiddleware = createLogger()
+let store = createStore(reducer,applyMiddleware(thunkMiddleware,loggerMiddleware))
 let history = createHashHistory()
 window.store = store
 ReactDOM.render(
